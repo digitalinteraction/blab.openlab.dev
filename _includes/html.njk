@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="Eleventy" />
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="/assets/style.css" />
+    <link rel="stylesheet" href="https://alembic.openlab.dev/everything.css" />
+  </head>
+  <body>
+    <main>
+      <center-layout>
+        {{ content | safe }}
+      </center-layout>
+    </main>
+
+    <footer>
+      <center-layout>
+        <p>
+          Made by
+          <a href="https://openlab.ncl.ac.uk">Open Lab</a>
+          and
+          <a href="https://github.com/digitalinteraction/blab.openlab.dev"
+            >Open Source</a
+          >
+        </p>
+      </center-layout>
+    </footer>
+
+    <script
+      type="module"
+      src="https://alembic.openlab.dev/everything.js"
+      defer
+    ></script>
+  </body>
+</html>

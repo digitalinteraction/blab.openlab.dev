@@ -1,0 +1,29 @@
+---
+layout: html.njk
+---
+
+<stack-layout space="var(--s3)">
+  <header>
+    <h1>{{ title }}</h1>
+  </header>
+
+  <section>
+    {{ content | safe }}
+  </section>
+
+  <nav>
+    <h2>Episodes</h2>
+    <ul>
+      {%- for episode in collections.episodes %}
+      <li>
+        <a href="{{ episode.url }}">{{ episode.data.title }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+  </nav>
+
+  <div>
+    <h2>Subscribe!</h2>
+    {% include 'subscribe.njk' %}
+  </div>
+</stack-layout>

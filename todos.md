@@ -1,0 +1,9 @@
+- A category & subcategory - https://podcasters.apple.com/support/1691-apple-podcasts-categories
+- title
+- homepage content
+- keywords
+- owner name / email
+- which services to syndicate to
+- twitter account?
+- Google podcasts
+- first podcast content

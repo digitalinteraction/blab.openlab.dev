@@ -1,0 +1,56 @@
+---
+permalink: "/feed.xml"
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+  xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:googleplay="http://www.google.com/schemas/play-podcasts/1.0">
+  <channel>
+    <generator>Eleventy</generator>
+    <title>{{ podcast.title | xmlEscape }}</title>
+    <description>{{ podcast.description | xmlEscape }}</description>
+    <atom:link href="{{ podcast.url }}" rel="self" type="application/rss+xml"></atom:link>
+    <copyright>{{ podcast.author | xmlEscape }}</copyright>
+    <language>en</language>
+    <pubDate>{{ collections.episodes | getNewestCollectionItemDate | dateToRfc822 }}</pubDate>
+    <lastBuildDate>{{ collections.episodes | getNewestCollectionItemDate | dateToRfc822 }}</lastBuildDate>
+    <image>
+      <link>{{ podcast.url }}</link>
+      <title>{{ podcast.title | xmlEscape }}</title>
+      <url>{{ podcast.image }}</url>
+    </image>
+    <link>{{ podcast.url }}</link>
+    <itunes:type>episodic</itunes:type>
+    <itunes:summary>{{ podcast.description | xmlEscape }}</itunes:summary>
+    <itunes:author>{{ podcast.author | xmlEscape }}</itunes:author>
+    <itunes:explicit>no</itunes:explicit>
+    <itunes:image href="{{ podcast.image }}"/>
+    <!-- <itunes:new-feed-url>{{ podcast.feedPath }}</itunes:new-feed-url> -->
+    <itunes:keywords>{{ podcast.keywords }}</itunes:keywords>
+    <itunes:owner>
+      <itunes:name>{{ podcast.owner.name }}</itunes:name>
+      <itunes:email>{{ podcast.owner.email }}</itunes:email>
+    </itunes:owner>
+    <itunes:category text="{{ podcast.category | xmlEscape }}"/>
+    {%- for episode in collections.episodes %}
+      <item>
+        <guid isPermaLink="false">{{ episode.data.guid }}</guid>
+        <title>{{ episode.data.title | xmlEscape }}</title>
+        <description><![CDATA[ {{ episode.templateContent | safe }} ]]></description>
+        <author>{{ podcast.author | xmlEscape }}</author>
+        <pubDate>{{ episode.data.published | dateToRfc822 }}</pubDate>
+        <link>{{ podcast.url }}</link>
+        <content:encoded><![CDATA[ {{ episode.templateContent | safe }} ]]></content:encoded>
+        <enclosure length="{{ episode.data.length }}" type="audio/mpeg" url="{{ episode.data.file }}"/>
+        <itunes:title>{{ episode.data.title | xmlEscape }}</itunes:title>
+        <itunes:author>{{ podcast.author | xmlEscape }}</itunes:author>
+        <itunes:duration>{{ episode.data.duration }}</itunes:duration>
+        <itunes:summary>{{ episode.data.summary }}</itunes:summary>
+        <itunes:subtitle>{{ episode.data.summary }}</itunes:subtitle>
+        <itunes:explicit>no</itunes:explicit>
+        <itunes:episodeType>full</itunes:episodeType>
+      </item>
+    {%- endfor %}
+  </channel>
+</rss>

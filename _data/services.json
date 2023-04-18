@@ -1,0 +1,32 @@
+[
+  {
+    "text": "@openlab_ncl",
+    "icon": "twitter",
+    "color": "#1D9BF0",
+    "url": "https://twitter.com/openlab_ncl"
+  },
+  {
+    "text": "Overcast",
+    "icon": "rss",
+    "color": "#FC7E0F",
+    "url": "https://overcast.fm/itunes123456789/openblab-podcast"
+  },
+  {
+    "text": "Spotify",
+    "icon": "spotify",
+    "color": "#1ED260",
+    "url": "https://example.com"
+  },
+  {
+    "text": "Apple Podcasts",
+    "icon": "apple",
+    "color": "#8C2EC3",
+    "url": "https://podcasts.apple.com/gb/podcast/ruminate-podcast/id123456789"
+  },
+  {
+    "text": "RSS",
+    "icon": "rss",
+    "color": "#F29637",
+    "url": "/feed.xml"
+  }
+]

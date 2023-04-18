@@ -1,0 +1,45 @@
+---
+layout: html.njk
+---
+
+<stack-layout space="var(--s3)">
+  <a href="/">
+    <icon-layout>
+      <svg>
+        <use href="/assets/icons.svg#left"></use>
+      </svg>
+      Go home
+    </icon-layout>
+  </a>
+
+  <header>
+    <h1>{{ title }}</h1>
+    <dl>
+      <dt>published</dt>
+      <dd>{{ published | longData }}</dd>
+
+      <dt>file size</dt>
+      <dd>{{ length | filesize }}</dd>
+
+      <dt>duration</dt>
+      <dd>{{ duration | duration }}</dd>
+    </dl>
+  </header>
+
+  <figure>
+    <audio controls src="{{ file }}"></audio>
+    <figcaption>
+      Listen to this episode, or <a href="{{ file }}" download>download it</a>
+    </figcaption>
+  </figure>
+
+  <section>
+    <h2>Show notes</h2>
+    {{ content | safe }}
+  </section>
+
+  <div>
+    <h2>Subscribe!</h2>
+    {% include 'subscribe.njk' %}
+  </div>
+</stack-layout>

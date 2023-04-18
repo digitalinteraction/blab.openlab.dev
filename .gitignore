@@ -1,0 +1,8 @@
+#
+# Files to ignore from git VCS
+#
+
+.DS_Store
+node_modules
+_site
+*.env
