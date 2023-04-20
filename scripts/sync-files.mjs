@@ -28,48 +28,12 @@ function getEpisodeNumbers(input) {
   return input.map((f) => episodeMd.exec(f)?.[1]).filter((f) => Boolean(f))
 }
 
-/** @param {string} input */
-function parseFrontmatter(input) {
-  const match = frontmatter.exec(input)
-  if (!match) throw new Error('Invalid episode')
-  return Yaml.parse(match[1])
-}
-
 async function main() {
   // Loop through the episodes in episodes/
-  const episodes = getEpisodeNumbers(
-    await fs.readdir(new URL('../episodes', import.meta.url))
+  const episodes = new Set(
+    getEpisodeNumbers(await fs.readdir(new URL('../episodes', import.meta.url)))
   )
-  const existing = new Set(episodes)
 
-  // console.debug('Found', episodes)
-
-  // for (const episodeNumber of episodes) {
-  //   console.debug('Processing', episodeNumber)
-  //   const contents = await fs.readFile(
-  //     new URL(`../episodes/${episodeNumber}.md`, import.meta.url),
-  //     'utf8'
-  //   )
-
-  //   // Parse the frontmatter
-  //   const frontmatter = parseFrontmatter(contents)
-  //   console.debug('frontmatter %O', frontmatter)
-
-  //   // Download the file
-  //   const fileRes = await fetch(frontmatter.file)
-  //   if (!fileRes.ok) throw new Error('Invalid mp3 file')
-  //   const data = await fileRes.arrayBuffer()
-  //   const tags = id3.read(Buffer.from(data))
-  //   console.debug('tags %O', tags)
-
-  //   // Get the duration + filesize
-  //   //
-  //   // Generate a UUID if missing
-  // }
-
-  //
-  // ---
-  //
   // List contents of the bucket
   const objects = await new Promise((resolve, reject) => {
     const files = []
@@ -78,26 +42,32 @@ async function main() {
     stream.on('end', () => resolve(files))
     stream.on('error', (e) => reject(error))
   })
+
   for (const object of objects) {
-    // Find files /\d+.mp3/
     const episode = episodeMp3.exec(object.name)?.[1]
-    if (!episode || existing.has(episode)) {
+
+    // Skip the file if it isn't an episode mp3 (e.g. "xxx.mp3") or if it already exists locally
+    if (!episode || episodes.has(episode)) {
       console.debug('skip', object.name)
       continue
     }
 
     const cdnUrl = new URL(object.name, CDN_URL)
 
+    // Check the S3 object was setup correctly by downloading from the CDN
     const res = await fetch(cdnUrl)
     if (!res.ok) throw new Error('Cannot download file')
     const data = Buffer.from(await res.arrayBuffer())
-    const tags = id3.read(data)
 
+    // Parse out the id3 tags
+    const tags = id3.read(data)
     console.debug('found tags', tags)
 
+    // Calculate the MP3 duration
     const duration = await mp3Duration(data)
     console.debug('duration', duration)
 
+    // Generate frontmatter for the new episode
     const frontmatter = {
       guid: crypto.randomUUID(),
       title: tags.title || `${episode} - TODO title`,
@@ -110,20 +80,19 @@ async function main() {
       episodeNumber: parseInt(episode),
     }
 
-    const file = ['---', Yaml.stringify(frontmatter).trim(), '---', ''].join(
-      '\n'
-    )
+    // Sketch out an empty markdown file
+    const sections = [
+      '---',
+      Yaml.stringify(frontmatter).trim(),
+      '---',
+      frontmatter.summary,
+    ]
 
+    // Write the episodes to the "episodes/" folder
     await fs.writeFile(
       new URL(`../episodes/${episode}.md`, import.meta.url),
-      file
+      sections.join('\n')
     )
-
-    //
-    //
-    // Create episode/{number}.md for missing mp3 files
-    // draft=true
-    // fill in duration + filesize + generate a guid + file
   }
 }
 
