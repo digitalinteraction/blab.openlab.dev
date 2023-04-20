@@ -6,12 +6,6 @@
     "url": "https://podcasts.apple.com/us/podcast/open-blab-podcast/id1683521584"
   },
   {
-    "text": "RSS",
-    "icon": "rss",
-    "color": "#F29637",
-    "url": "/feed.xml"
-  },
-  {
     "text": "Spotify",
     "icon": "spotify",
     "color": "#1ED260",
@@ -22,6 +16,12 @@
     "icon": "rss",
     "color": "#FC7E0F",
     "url": "https://overcast.fm/itunes1683521584/openblab-podcast"
+  },
+  {
+    "text": "RSS",
+    "icon": "rss",
+    "color": "#F29637",
+    "url": "/feed.xml"
   },
   {
     "text": "@openlab_ncl",
