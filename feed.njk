@@ -41,7 +41,7 @@ permalink: "/feed.xml"
         <description><![CDATA[ {{ episode.templateContent | safe }} ]]></description>
         <author>{{ podcast.author | xmlEscape }}</author>
         <pubDate>{{ episode.data.published | dateToRfc822 }}</pubDate>
-        <link>{{ podcast.url }}</link>
+        <link>{{ episode.url | fullUrl }}</link>
         <content:encoded><![CDATA[ {{ episode.templateContent | safe }} ]]></content:encoded>
         <enclosure length="{{ episode.data.length }}" type="audio/mpeg" url="{{ episode.data.file }}"/>
         <itunes:title>{{ episode.data.title | xmlEscape }}</itunes:title>

@@ -4,13 +4,11 @@ const { eleventyAlembic } = require('@openlab/alembic/11ty')
 const { filesize } = require('filesize')
 const ms = require('ms')
 
+const site = require('./_data/podcast.json')
+
 const longData = new Intl.DateTimeFormat('en-GB', {
   dateStyle: 'long',
   timeStyle: 'short',
-})
-
-const duration = new Intl.RelativeTimeFormat('en-GB', {
-  style: 'long',
 })
 
 module.exports = function (eleventyConfig) {
@@ -22,5 +20,8 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter('filesize', (input) => filesize(input))
   eleventyConfig.addFilter('duration', (input) =>
     ms(input * 1000, { long: true })
+  )
+  eleventyConfig.addFilter('fullUrl', (input) =>
+    new URL(input, site.url).toString()
   )
 }

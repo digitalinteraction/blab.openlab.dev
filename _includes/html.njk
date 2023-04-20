@@ -6,7 +6,7 @@
     <meta name="generator" content="Eleventy" />
     <title>{{ title }}</title>
     <link rel="stylesheet" href="/assets/style.css" />
-    <link rel="stylesheet" href="https://alembic.openlab.dev/everything.css" />
+    <!-- @openlab/alembic inject-css -->
   </head>
   <body>
     <main>
@@ -28,10 +28,6 @@
       </center-layout>
     </footer>
 
-    <script
-      type="module"
-      src="https://alembic.openlab.dev/everything.js"
-      defer
-    ></script>
+    <!-- @openlab/alembic inject-js -->
   </body>
 </html>
