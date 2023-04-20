@@ -1,15 +1,15 @@
 [
   {
-    "text": "@openlab_ncl",
-    "icon": "twitter",
-    "color": "#1D9BF0",
-    "url": "https://twitter.com/openlab_ncl"
+    "text": "Apple Podcasts",
+    "icon": "apple",
+    "color": "#8C2EC3",
+    "url": "https://podcasts.apple.com/us/podcast/open-blab-podcast/id1683521584"
   },
   {
-    "text": "Overcast",
+    "text": "RSS",
     "icon": "rss",
-    "color": "#FC7E0F",
-    "url": "https://overcast.fm/itunes123456789/openblab-podcast"
+    "color": "#F29637",
+    "url": "/feed.xml"
   },
   {
     "text": "Spotify",
@@ -18,15 +18,15 @@
     "url": "https://example.com"
   },
   {
-    "text": "Apple Podcasts",
-    "icon": "apple",
-    "color": "#8C2EC3",
-    "url": "https://podcasts.apple.com/gb/podcast/ruminate-podcast/id123456789"
+    "text": "Overcast",
+    "icon": "rss",
+    "color": "#FC7E0F",
+    "url": "https://overcast.fm/itunes1683521584/openblab-podcast"
   },
   {
-    "text": "RSS",
-    "icon": "rss",
-    "color": "#F29637",
-    "url": "/feed.xml"
+    "text": "@openlab_ncl",
+    "icon": "twitter",
+    "color": "#1D9BF0",
+    "url": "https://twitter.com/openlab_ncl"
   }
 ]
