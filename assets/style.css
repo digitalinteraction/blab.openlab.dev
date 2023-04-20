@@ -30,6 +30,10 @@ footer {
   opacity: 0.8;
   padding: 1em;
 }
+footer a {
+  font-weight: bold;
+  color: black;
+}
 code {
   font-family: 'SF Mono', ui-monospace, monospace;
   padding: 0 0.2em;
