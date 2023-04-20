@@ -3,6 +3,6 @@ layout: home.njk
 title: Open Blab
 ---
 
-## Welcome to Open
+## Welcome to Open BLab
 
-Lorem ipsum sil dor amet...
+An HCI Podcast based at Newcastle University

@@ -1,11 +1,11 @@
 {
   "title": "Open Blab Podcast",
-  "description": "A podcast about what's on our minds.",
-  "category": "Science",
+  "description": "An HCI Podcast based at Newcastle University",
+  "category": "Technology",
   "author": "Open Lab",
   "owner": {
-    "name": "Daniel Parry",
-    "email": "daniel.parry@newcastle.ac.uk"
+    "name": "Open Lab",
+    "email": "openlab-admin@newcastle.ac.uk"
   },
   "feedPath": "https://blab.openlab.dev/feed.xml",
   "image": "https://openblab.ams3.cdn.digitaloceanspaces.com/cover.png",

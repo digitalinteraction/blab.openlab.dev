@@ -1,4 +1,8 @@
-- A category & subcategory - https://podcasters.apple.com/support/1691-apple-podcasts-categories
+---
+layout: home.njk
+title: Todos
+---
+
 - title
 - homepage content
 - keywords
@@ -6,4 +10,3 @@
 - which services to syndicate to
 - twitter account?
 - Google podcasts
-- first podcast content
