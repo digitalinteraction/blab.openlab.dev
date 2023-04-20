@@ -1,0 +1,6 @@
+#
+# Files to ignore from the Eleventy build process
+#
+
+scripts
+README.md
