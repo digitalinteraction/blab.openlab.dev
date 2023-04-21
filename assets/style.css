@@ -110,3 +110,9 @@ dl dt {
 dl dd {
   font-family: SFMono-Regular, ui-monospace, monospace;
 }
+
+.flow h1 + p,
+.flow h2 + p,
+.flow h3 + p {
+  margin-top: 0;
+}
