@@ -1,6 +1,6 @@
 ---
 layout: home.njk
-title: Open BLab
+title: Open Blab
 ---
 
 ## Welcome
