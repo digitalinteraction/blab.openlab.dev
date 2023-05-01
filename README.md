@@ -1,4 +1,4 @@
-# blab.openlab.dev
+# blab.openlab.dev [![build](https://github.com/digitalinteraction/blab.openlab.dev/actions/workflows/pages.yml/badge.svg)](https://github.com/digitalinteraction/blab.openlab.dev/actions/workflows/pages.yml)
 
 This the the repo for the Open Lab podcast "Open Blab". It contains the source code to generate the website and links to the podcast media which is hosted in an S3 bucket.
 The site is built with [eleventy](https://www.11ty.dev/), is styled with [alembic.openlab.dev](https://alembic.openlab.dev/) and pulls fonts from [fonts.openlab.dev](https://fonts.openlab.dev/).
