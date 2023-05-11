@@ -26,12 +26,15 @@ layout: html.njk
     </dl>
   </header>
 
-  <figure>
-    <audio controls src="{{ file }}"></audio>
-    <figcaption>
-      Listen to this episode, or <a href="{{ file }}" download>download it</a>
-    </figcaption>
-  </figure>
+  <cluster-layout>
+    <img src="{{ podcast.image }}" width="92" height="92" class="coverArt" />
+    <figure>
+      <audio controls src="{{ file }}"></audio>
+      <figcaption>
+        Listen to this episode, or <a href="{{ file }}" download>download it</a>
+      </figcaption>
+    </figure>
+  </cluster-layout>
 
   <section class="flow">
     <h2>Show notes</h2>

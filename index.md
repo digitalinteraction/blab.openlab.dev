@@ -3,7 +3,7 @@ layout: home.njk
 title: Open Blab
 ---
 
-## Welcome
+## {{ title }}
 
 Join us as we talk all things HCI and Interaction Design in the new Open Lab podcast.
 

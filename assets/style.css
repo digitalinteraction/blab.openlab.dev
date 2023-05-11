@@ -116,3 +116,8 @@ dl dd {
 .flow h3 + p {
   margin-top: 0;
 }
+
+.coverArt {
+  box-shadow: 3px 5px 7px rgba(0, 0, 0, 0.3);
+  border-radius: 3px;
+}

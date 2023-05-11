@@ -4,7 +4,15 @@ layout: html.njk
 
 <stack-layout space="var(--s3)">
   <header>
-    <h1>{{ title }}</h1>
+    <center-layout intrinsic align="center" space="var(--s0)">
+      <img
+        src="{{ podcast.image }}"
+        width="256"
+        height="256"
+        class="coverArt"
+        alt="{{ title }}"
+      />
+    </center-layout>
   </header>
 
   <section class="flow">
