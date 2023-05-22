@@ -8,7 +8,7 @@
     "email": "openlab-admin@newcastle.ac.uk"
   },
   "feedPath": "https://blab.openlab.dev/feed.xml",
-  "image": "https://openblab.ams3.cdn.digitaloceanspaces.com/cover.png",
+  "image": "https://openblab.ams3.cdn.digitaloceanspaces.com/cover.png?n=002",
   "url": "https://blab.openlab.dev",
   "keywords": "hci, ubiquitous computing, interaction design"
 }
