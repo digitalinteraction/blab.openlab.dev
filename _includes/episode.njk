@@ -13,36 +13,45 @@ layout: html.njk
   </a>
 
   <header>
-    <h1>{{ title }}</h1>
-    <dl>
-      <dt>published</dt>
-      <dd>{{ published | longData }}</dd>
+    <stack-layout space="var(--s0)">
+      <h1>{{ title }}</h1>
+      <dl>
+        <dt>published</dt>
+        <dd>{{ published | longData }}</dd>
 
-      <dt>file size</dt>
-      <dd>{{ length | filesize }}</dd>
+        <dt>file size</dt>
+        <dd>{{ length | filesize }}</dd>
 
-      <dt>duration</dt>
-      <dd>{{ duration | duration }}</dd>
-    </dl>
+        <dt>duration</dt>
+        <dd>{{ duration | duration }}</dd>
+      </dl>
+    </stack-layout>
   </header>
 
-  <cluster-layout>
-    <img src="{{ podcast.image }}" width="92" height="92" class="coverArt" />
-    <figure>
-      <audio controls src="{{ file }}"></audio>
-      <figcaption>
-        Listen to this episode, or <a href="{{ file }}" download>download it</a>
-      </figcaption>
-    </figure>
-  </cluster-layout>
+  <div class="boxCard">
+    <cluster-layout>
+      <img src="{{ podcast.image }}" width="92" height="92" class="coverArt" />
+      <figure>
+        <audio controls src="{{ file }}"></audio>
+        <figcaption>
+          Listen to this episode, or
+          <a href="{{ file }}" download>download it</a>
+        </figcaption>
+      </figure>
+    </cluster-layout>
+  </div>
 
   <section class="flow">
-    <h2>Show notes</h2>
+    <h2>
+      <icon-layout>
+        <svg>
+          <use href="/assets/icons.svg#info"></use>
+        </svg>
+        Show notes
+      </icon-layout>
+    </h2>
     {{ content | safe }}
   </section>
 
-  <div>
-    <h2>Subscribe!</h2>
-    {% include 'subscribe.njk' %}
-  </div>
+  {% include 'subscribe.njk' %}
 </stack-layout>

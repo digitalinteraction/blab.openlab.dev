@@ -3,7 +3,14 @@ layout: home.njk
 title: Open Blab
 ---
 
-## {{ title }}
+<h2>
+  <icon-layout>
+    <svg>
+      <use href="/assets/icons.svg#mic"></use>
+    </svg>
+    {{ title }}
+  </icon-layout>
+</h2>
 
 Join us as we talk all things HCI and Interaction Design in the new Open Lab podcast.
 

@@ -5,31 +5,38 @@ layout: html.njk
 <stack-layout space="var(--s3)">
   <header>
     <center-layout intrinsic align="center" space="var(--s0)">
-      <img
-        src="{{ podcast.image }}"
-        width="256"
-        height="256"
-        class="coverArt"
-        alt="{{ title }}"
-      />
+      <div class="boxCard">
+        <img
+          src="{{ podcast.image }}"
+          width="256"
+          height="256"
+          class="coverArt"
+          alt="{{ title }}"
+        />
+      </div>
     </center-layout>
   </header>
 
   <section class="flow">{{ content | safe }}</section>
 
   <nav>
-    <h2>Episodes</h2>
-    <ul>
+    <h2>
+      <icon-layout>
+        <svg>
+          <use href="/assets/icons.svg#notes"></use>
+        </svg>
+        Episodes
+      </icon-layout>
+    </h2>
+    <stack-layout>
       {%- for episode in collections.episodes | episodeSort %}
-      <li>
+      <article>
         <a href="{{ episode.url }}">{{ episode.data.title }}</a>
-      </li>
+        <p>{{ episode.data.summary }}</p>
+      </article>
       {% endfor %}
-    </ul>
+    </stack-layout>
   </nav>
 
-  <div>
-    <h2>Subscribe!</h2>
-    {% include 'subscribe.njk' %}
-  </div>
+  {% include 'subscribe.njk' %}
 </stack-layout>

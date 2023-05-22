@@ -1,17 +1,22 @@
-<cluster-layout space="var(--s-1)">
-  {%- for service in services %}
-  <a
-    class="subscribeButton"
-    href="{{ service.url }}"
-    rel="me"
-    style="--color: {{ service.color }}"
-  >
-    <icon-layout space="var(--s-3)">
-      <svg>
-        <use href="/assets/icons.svg#{{ service.icon }}"></use>
-      </svg>
-      {{ service.text }}
-    </icon-layout>
-  </a>
-  {% endfor %}
-</cluster-layout>
+<section class="boxCard">
+  <stack-layout space="var(--s-2)">
+    <h2>Subscribe!</h2>
+    <cluster-layout space="var(--s-1)">
+      {%- for service in services %}
+      <a
+        class="subscribeButton"
+        href="{{ service.url }}"
+        rel="me"
+        style="--color: {{ service.color }}"
+      >
+        <icon-layout space="var(--s-3)">
+          <svg>
+            <use href="/assets/icons.svg#{{ service.icon }}"></use>
+          </svg>
+          {{ service.text }}
+        </icon-layout>
+      </a>
+      {% endfor %}
+    </cluster-layout>
+  </stack-layout>
+</section>

@@ -9,6 +9,8 @@ body {
   flex-direction: column;
   gap: 1rem;
   font-size: 18px;
+  background: #010b36;
+  color: white;
 }
 h1 {
   font-size: 2em;
@@ -32,7 +34,7 @@ footer {
 }
 footer a {
   font-weight: bold;
-  color: black;
+  color: white;
 }
 code {
   font-family: 'SF Mono', ui-monospace, monospace;
@@ -108,7 +110,7 @@ dl dt {
   font-style: italic;
 }
 dl dd {
-  font-family: SFMono-Regular, ui-monospace, monospace;
+  font-family: 'SF Mono', ui-monospace, monospace;
 }
 
 .flow h1 + p,
@@ -120,4 +122,32 @@ dl dd {
 .coverArt {
   box-shadow: 3px 5px 7px rgba(0, 0, 0, 0.3);
   border-radius: 3px;
+}
+
+.boxCard {
+  padding: var(--s1);
+  background: white;
+  border-radius: var(--s0);
+  color: black;
+}
+.boxCard a:not([class]) {
+  color: #8300f7;
+}
+
+a {
+  color: #ffba53;
+  font-weight: bold;
+}
+
+figure {
+  flex: 1;
+}
+
+audio {
+  min-width: 100%;
+}
+
+nav ul {
+  font-size: 1.2em;
+  padding-left: 1em;
 }
