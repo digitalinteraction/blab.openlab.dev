@@ -24,4 +24,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter('fullUrl', (input) =>
     new URL(input, site.url).toString()
   )
+  eleventyConfig.addFilter('episodeSort', (collection) =>
+    Array.from(collection).sort((a, b) => b.date.getTime() - a.date.getTime())
+  )
 }

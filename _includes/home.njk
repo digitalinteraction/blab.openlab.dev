@@ -15,14 +15,12 @@ layout: html.njk
     </center-layout>
   </header>
 
-  <section class="flow">
-    {{ content | safe }}
-  </section>
+  <section class="flow">{{ content | safe }}</section>
 
   <nav>
     <h2>Episodes</h2>
     <ul>
-      {%- for episode in collections.episodes %}
+      {%- for episode in collections.episodes | episodeSort %}
       <li>
         <a href="{{ episode.url }}">{{ episode.data.title }}</a>
       </li>
