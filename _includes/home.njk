@@ -2,41 +2,43 @@
 layout: html.njk
 ---
 
-<stack-layout space="var(--s3)">
-  <header>
-    <center-layout intrinsic align="center" space="var(--s0)">
-      <div class="boxCard">
-        <img
-          src="{{ podcast.image }}"
-          width="256"
-          height="256"
-          class="coverArt"
-          alt="{{ title }}"
-        />
-      </div>
-    </center-layout>
-  </header>
+<header class="hero">
+  <center-layout intrinsic align="center" space="var(--s0)" gutters="var(--s0)">
+    <img
+      src="{{ podcast.image }}"
+      width="256"
+      height="256"
+      class="coverArt"
+      alt="{{ title }}"
+    />
+  </center-layout>
+</header>
 
-  <section class="flow">{{ content | safe }}</section>
+<main>
+  <center-layout gutters="var(--s0)">
+    <stack-layout space="var(--s3)">
+      <section class="flow">{{ content | safe }}</section>
 
-  <nav>
-    <h2>
-      <icon-layout>
-        <svg>
-          <use href="/assets/icons.svg#notes"></use>
-        </svg>
-        Episodes
-      </icon-layout>
-    </h2>
-    <stack-layout>
-      {%- for episode in collections.episodes | episodeSort %}
-      <article>
-        <a href="{{ episode.url }}">{{ episode.data.title }}</a>
-        <p>{{ episode.data.summary }}</p>
-      </article>
-      {% endfor %}
+      <nav>
+        <h2>
+          <icon-layout>
+            <svg>
+              <use href="/assets/icons.svg#notes"></use>
+            </svg>
+            Episodes
+          </icon-layout>
+        </h2>
+        <stack-layout>
+          {%- for episode in collections.episodes | episodeSort %}
+          <article>
+            <a href="{{ episode.url }}">{{ episode.data.title }}</a>
+            <p>{{ episode.data.summary }}</p>
+          </article>
+          {% endfor %}
+        </stack-layout>
+      </nav>
+
+      {% include 'subscribe.njk' %}
     </stack-layout>
-  </nav>
-
-  {% include 'subscribe.njk' %}
-</stack-layout>
+  </center-layout>
+</main>

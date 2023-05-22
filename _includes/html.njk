@@ -4,19 +4,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content="Eleventy" />
-    <meta name="google-site-verification" content="Mxkm3uJ-fNYOwrDRQLfN5tC91aGs5md6P4cqluiMfeE" />
+    <meta
+      name="google-site-verification"
+      content="Mxkm3uJ-fNYOwrDRQLfN5tC91aGs5md6P4cqluiMfeE"
+    />
     <title>{{ title }}</title>
     <link rel="stylesheet" href="/assets/style.css" />
     <link rel="stylesheet" href="https://fonts.openlab.dev/inter/inter.css" />
-    <link rel="alternate" type="application/rss+xml" href="feed.xml" title="Podcast" />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      href="feed.xml"
+      title="Podcast"
+    />
     <!-- @openlab/alembic inject-css -->
   </head>
   <body>
-    <main>
-      <center-layout>
-        {{ content | safe }}
-      </center-layout>
-    </main>
+    {{ content | safe }}
 
     <footer>
       <center-layout>

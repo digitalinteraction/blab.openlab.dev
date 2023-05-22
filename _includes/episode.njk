@@ -2,56 +2,71 @@
 layout: html.njk
 ---
 
-<stack-layout space="var(--s3)">
-  <a href="/">
-    <icon-layout>
-      <svg>
-        <use href="/assets/icons.svg#left"></use>
-      </svg>
-      Go home
-    </icon-layout>
-  </a>
+<header class="hero">
+  <center-layout gutters="var(--s0)">
+    <stack-layout space="var(--s3)">
+      <a href="/">
+        <icon-layout>
+          <svg>
+            <use href="/assets/icons.svg#left"></use>
+          </svg>
+          Go home
+        </icon-layout>
+      </a>
 
-  <header>
-    <stack-layout space="var(--s0)">
-      <h1>{{ title }}</h1>
-      <dl>
-        <dt>published</dt>
-        <dd>{{ published | longData }}</dd>
+      <header>
+        <stack-layout space="var(--s0)">
+          <h1>{{ title }}</h1>
+          <dl>
+            <dt>published</dt>
+            <dd>{{ published | longData }}</dd>
 
-        <dt>file size</dt>
-        <dd>{{ length | filesize }}</dd>
+            <dt>file size</dt>
+            <dd>{{ length | filesize }}</dd>
 
-        <dt>duration</dt>
-        <dd>{{ duration | duration }}</dd>
-      </dl>
+            <dt>duration</dt>
+            <dd>{{ duration | duration }}</dd>
+          </dl>
+        </stack-layout>
+      </header>
     </stack-layout>
-  </header>
+  </center-layout>
+</header>
 
-  <div class="boxCard">
-    <cluster-layout>
-      <img src="{{ podcast.image }}" width="92" height="92" class="coverArt" />
-      <figure>
-        <audio controls src="{{ file }}"></audio>
-        <figcaption>
-          Listen to this episode, or
-          <a href="{{ file }}" download>download it</a>
-        </figcaption>
-      </figure>
-    </cluster-layout>
-  </div>
+<main>
+  <center-layout gutters="var(--s0)">
+    <stack-layout space="var(--s3)">
+      <div class="boxCard">
+        <cluster-layout>
+          <img
+            src="{{ podcast.image }}"
+            width="92"
+            height="92"
+            class="coverArt"
+          />
+          <figure>
+            <audio controls src="{{ file }}"></audio>
+            <figcaption>
+              Listen to this episode, or
+              <a href="{{ file }}" download>download it</a>
+            </figcaption>
+          </figure>
+        </cluster-layout>
+      </div>
 
-  <section class="flow">
-    <h2>
-      <icon-layout>
-        <svg>
-          <use href="/assets/icons.svg#info"></use>
-        </svg>
-        Show notes
-      </icon-layout>
-    </h2>
-    {{ content | safe }}
-  </section>
+      <section class="flow">
+        <h2>
+          <icon-layout>
+            <svg>
+              <use href="/assets/icons.svg#info"></use>
+            </svg>
+            Show notes
+          </icon-layout>
+        </h2>
+        {{ content | safe }}
+      </section>
 
-  {% include 'subscribe.njk' %}
-</stack-layout>
+      {% include 'subscribe.njk' %}
+    </stack-layout>
+  </center-layout>
+</main>
