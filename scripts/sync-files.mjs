@@ -56,7 +56,7 @@ async function main() {
 
     // Check the S3 object was setup correctly by downloading from the CDN
     const res = await fetch(cdnUrl)
-    if (!res.ok) throw new Error('Cannot download file')
+    if (!res.ok) throw new Error('Cannot download file, is it public?')
     const data = Buffer.from(await res.arrayBuffer())
 
     // Parse out the id3 tags
